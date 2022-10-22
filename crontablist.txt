@@ -1,0 +1,9 @@
+3 0 * * * date | /media/data/timelapse/createAllFolders.sh
+
+58 23 * * * date | /media/data/timelapse/yesterdayStack0to11.sh
+
+59 23 * * * date | /media/data/timelapse/yesterdayStack12to23.sh
+
+0 1 * * * python3 /home/turingalbertsons1/turing/data_record/process_data_days.py
+    
+0,15,30,45 * * * * python3 /home/turingalbertsons1/turing/data_record/wanda-tools/scripts/video_recording.py -t 900 -r 1 --dest-dir /media/data/ --camera-url-list '[{"id": 1, "uri": "rtsp://admin:Turingvideo0!@192.168.1.101/profile2/media.smp"},{"id": 2, "uri": "rtsp://admin:Turingvideo0!@192.168.1.102/profile2/media.smp"},  {"id": 3, "uri": "rtsp://admin:Turingvideo0!@192.168.1.103/profile2/media.smp"}, {"id": 4, "uri": "rtsp://admin:Turingvideo0!@192.168.1.104/profile2/media.smp"}, {"id": 5, "uri": "rtsp://admin:Turingvideo0!@192.168.1.105/profile2/media.smp"}, {"id": 6, "uri": "rtsp://admin:Turingvideo0!@192.168.1.106/profile2/media.smp"}, {"id": 7, "uri": "rtsp://admin:Turingvideo0!@192.168.1.107/profile2/media.smp"}]'
